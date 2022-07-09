@@ -1,15 +1,13 @@
 // Store our API endpoing as queryURL
 var queryURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-var queryURLPlates = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
+
 
 // Perform a GET request to the query URL
 d3.json(queryURL).then(function(data){
-  d3.json(queryURLPlates).then(function(plates){
     // Once e get a response, send the data.features and data.features object to the createFeatures function.
-    createFeatures(data.features, plates.features);
+    createFeatures(data.features);
   });
     
-});
 
 function createFeatures(earthquakeData, platesData){
 
